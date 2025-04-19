@@ -1,1 +1,7 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 my_legiscan_key.txt
+my_legiscan_key.py
+# dependencies
+/node_modules
+

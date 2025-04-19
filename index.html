@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="style.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="titleSection">
+            <h2>The Element Search</h2>
+        </div>
+
+        <div class="tableContainer">
+        <table class="tableBody" id="mainTable">
+            <thead>
+            <tr>
+                <th class="tblHeader" id="number">Number</th>
+                <th class="tblHeader" id="name">Name</th>
+                <th class="tblHeader" id="abbreviation">Abbreviation</th>
+                <th class="tblHeader" id="atomicMass">Atomic Mass</th>
+                <th class="tblHeader" id="period">Period</th>
+            </tr>
+            </thead>         
+            <tbody></tbody>
+        </table>
+        </div>
+
+        <div class="searchBox">
+            <section>
+                <form id="filterForm" method="get">
+                    <p></p>
+                    <label for="searchByID">Search By: </label>
+                    <select id="searchBy">
+                        <option value="default"></option>
+                        <option value="number">Number</option>
+                        <option value="name">Name</option>
+                        <option value="abbreviation">Abbreviation</option>
+                        <option value="period">Period</option>
+                    </select>
+
+                    <input id="searchText" type="text" placeholder="text"/>
+                    <input type="submit" />
+                </form>
+                <span class="output"></span>
+            </section>
+
+            <section id="formBox">
+                <button id="clearTable">Clear Table</button>
+                <button id="seeAll">See All</button>
+            </section>
+
+        </div>
+        <script type="text/javascript" src="index.js"></script> 
+    </body>
+</html>

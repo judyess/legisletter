@@ -1,0 +1,32 @@
+# nginx file contents for reference
+#**** file location: /etc/nginx/nginx.conf ("$ whereis nginx" or "$ nginx -V" and look for the "config file" param)   
+#**** edit the nginx file at the above location. Its contents should contain what is in this file. Will need admin access.
+#       To Edit, run: "$ sudo nano /etc/nginx/nginx.conf" to edit.
+#**** to start nginx: "$ nginx"
+
+worker_processes 1;
+
+events {
+	worker_connections 1024;
+}
+
+http {
+	include mime.types;
+	
+	upstream mynodejs_cluster {
+        least_conn;
+		server 127.0.0.1:3001;
+		server 127.0.0.1:3002;
+		server 127.0.0.1:3003;
+	}
+	server {
+		listen 8080; #(listen on port "443 ssl" for https. source: https://youtu.be/q8OleYuqntY?t=3878)
+		server_name localhost;
+
+		location / {
+			proxy_pass http://mynodejs_cluster;
+			proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+		}
+	}
+}
